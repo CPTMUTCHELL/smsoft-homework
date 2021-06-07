@@ -23,6 +23,7 @@
         <module>Smartsoft-CSV</module>
         <module>rest-service-csv</module>
         <module>name-maven-plugin</module>
+        <module>csv-subsequent-loader</module>
     </modules>
 
     <build>
@@ -30,6 +31,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
