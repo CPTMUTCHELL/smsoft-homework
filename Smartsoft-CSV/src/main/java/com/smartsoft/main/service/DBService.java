@@ -73,9 +73,10 @@ public class DBService {
                 .collect(Collectors.toCollection(() -> new ArrayList<>(hashMap.size())));
     }
     public void loadFilesToDbSubsequently(List<Record> records) throws InterruptedException {
+        recordRepository.deleteAll();
         for (int i = 0; i < records.size(); i++) {
             recordRepository.save(records.get(i));
-            if (i % 100 == 0){
+            if (i % 1000 == 0){
                 Thread.sleep(1000);
             }
         }

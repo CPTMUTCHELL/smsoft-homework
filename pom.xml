@@ -22,7 +22,7 @@
     <modules>
         <module>Smartsoft-CSV</module>
         <module>rest-service-csv</module>
-<!--        <module>name-maven-plugin</module>-->
+        <module>name-maven-plugin</module>
     </modules>
 
     <build>
