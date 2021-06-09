@@ -15,5 +15,22 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+    <build>
+    <plugins>
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
 
+        <executions>
+            <execution>
+                <id>repackage</id>
+                <phase>none</phase>
+            </execution>
+        </executions>
+        <configuration>
+            <skip>true</skip>
+        </configuration>
+    </plugin>
+    </plugins>
+    </build>
 </project>
