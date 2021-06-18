@@ -31,6 +31,7 @@ public class SwitchEnumFormatter {
             case DATE -> getDate(date);
             case LOCAL_DATE -> LocalDate.parse(date, FORMATTER);
             case LOCAL_DATE_TIME -> LocalDate.parse(date, FORMATTER).atStartOfDay();
+
         };
     }
 
