@@ -26,6 +26,7 @@
         <module>csv-subsequent-loader</module>
         <module>3-date-formatter</module>
         <module>5-enum-switch-date-formatter</module>
+<!--        <module>6-docker-rest</module>-->
     </modules>
     <dependencies>
         <dependency>
