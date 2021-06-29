@@ -1,6 +1,4 @@
--- Union позволяет объединять результаты нескольких запросов в один результат. Чтоб объединить результаты с помощью union
--- запросы должны иметь одинаковые типы данных, а также кол-во и порядок параметров (колонок) в селектах должен быть одинаковым
--- Union удаляет все дубликаты, если же их нужно оставить, то используют Union all
+
 create table customers(id serial primary key , name text, code int);
 create table suppliers(id serial primary key , name text, code int);
 insert into customers (name, code) VALUES ('name1',1), ('name2',22),('name3',333);
