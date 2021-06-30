@@ -12,3 +12,4 @@ SELECT 'searchhва' SIMILAR TO 'searc(h{2})%';
 --Returning позволяет возвращать значения, которые были добавлены или изменены (insert into or update)
 insert into suppliers(name, code) values ('newInsert',66) returning name;
 delete from suppliers where name like '%sert' returning code,name;
+

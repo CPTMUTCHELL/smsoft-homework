@@ -56,3 +56,4 @@ WITH RECURSIVE doc_key_and_value_recursive(key, value) AS (
 SELECT *
 FROM doc_key_and_value_recursive
 WHERE json_typeof(doc_key_and_value_recursive.value) <> 'object';
+

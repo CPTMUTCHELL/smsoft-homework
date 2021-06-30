@@ -74,8 +74,6 @@ BEGIN
                NEW.customer_id);
 
     RETURN NEW;
-EXCEPTION WHEN unique_violation THEN
-    RAISE EXCEPTION 'Duplicate customer or project id';
 END;
 $$ LANGUAGE plpgsql;
 create trigger cust_proj_view_insert_trg
