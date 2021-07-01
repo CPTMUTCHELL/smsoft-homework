@@ -65,6 +65,7 @@ ALTER TABLE orders
     ALTER COLUMN info
         SET DATA TYPE jsonb using info::jsonb;
 
+--Такой вариант не сможет изменить вложенные ключи
 UPDATE orders SET info = jsonb_set(info, '{customer}', '"Cashi"') where id =1;
 update orders
 set info = info - 'customer' || jsonb_build_object('customer!!!', info->'customer')
@@ -72,7 +73,7 @@ where id =1
 returning *;
 --returning для наглядности
 
---вложенность
+--изменение вложенных ключей
 UPDATE orders
 SET info = jsonb_set(info #- '{items,qty}',
                                 '{items,qt111y}',
@@ -80,14 +81,3 @@ SET info = jsonb_set(info #- '{items,qty}',
 WHERE id=1;
 
 
---Сделать импорт sql-файлов с создать view:
--- has_etp_process - true/false - для репы имеется как минимум 1 значение с label ETP_PROCESS
--- gu_service_codes - значения с label GU_SERVICE_CODE в виде массива для данного репозитория
--- java_files_count - значениес label STAT_JAVA
--- кол-во ЕФП-адаптеров
--- кол-во sql файлов
--- Почитать что такое процедура, с помощью неё что-то добавить во view
--- Сделать триггер, который будет смотреть на изменения во вью и удалять каждый 5й элемент во вью,
--- а также добавлять значение счетчика к названию каждой чётной метрики а удалённые записи будут записывать в отдельную таблицу, которую тоже надо вам создать
--- Сделать export через pg dump, чтоб можно было посмотреть на ваши таблицы/view, триггеры, процедуры, функции
--- Сделать и прикрепить скрины import/export
