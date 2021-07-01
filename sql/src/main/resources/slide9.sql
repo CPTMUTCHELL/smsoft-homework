@@ -5,7 +5,7 @@ CREATE TABLE employees(
   last_name VARCHAR(40) NOT NULL,
   PRIMARY KEY(id)
 );
---таблича для логирования изменений фамилии
+--табличка для логирования изменений фамилии
 CREATE TABLE employee_audits (
  id INT GENERATED ALWAYS AS IDENTITY,
  employee_id INT NOT NULL,
