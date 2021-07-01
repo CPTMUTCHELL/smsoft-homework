@@ -33,10 +33,11 @@ select info -> 'items' ->>'product' as items from orders;
 select info ->'customer' as customer , info -> 'items' ->>'product' as items
 from orders where  info -> 'items' ->>'product'  ='Beer';
 
---key-value example
+--key-value example, without nested pairs
 select key,value  from orders, json_each(info);
 
 --Тут можно увидеть, что из recursive можно использовать в from
+--Ищем все key-value
 WITH RECURSIVE doc_key_and_value_recursive(key, value) AS (
     --Не рекурсивный запрос. Нужен для поиска элемента, с которого следует начать рекурсивный запрос
     SELECT
@@ -65,8 +66,12 @@ ALTER TABLE orders
     ALTER COLUMN info
         SET DATA TYPE jsonb using info::jsonb;
 
---Такой вариант не сможет изменить вложенные ключи
+--Изменение значения невложенного ключа
 UPDATE orders SET info = jsonb_set(info, '{customer}', '"Cashi"') where id =1;
+--Если вложенность, то пишем путь (items,qty), иначе если сделать просто qty, то это будет новым полем, которое добавится в запись
+UPDATE orders SET info = jsonb_set(info, '{items,qty}', '96') where id =3;
+
+--Такой вариант не сможет изменить вложенные ключи
 update orders
 set info = info - 'customer' || jsonb_build_object('customer!!!', info->'customer')
 where id =1
@@ -79,5 +84,7 @@ SET info = jsonb_set(info #- '{items,qty}',
                                 '{items,qt111y}',
                                 info#>'{items,qty}')
 WHERE id=1;
+
+
 
 
