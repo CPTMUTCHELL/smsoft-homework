@@ -29,7 +29,7 @@
         <module>7-text-blocks</module>
 <!--        <module>sql</module>-->
                 <module>6-docker-rest</module>
-        <module>10-lombok</module>
+        <module>11-generic</module>
     </modules>
     <dependencies>
         <dependency>
