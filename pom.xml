@@ -15,21 +15,22 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>16</java.version>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <java.version>15</java.version>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
     </properties>
     <modules>
-        <module>Smartsoft-CSV</module>
-        <module>rest-service-csv</module>
+<!--        <module>Smartsoft-CSV</module>-->
+<!--        <module>rest-service-csv</module>-->
 <!--        <module>name-maven-plugin</module>-->
-        <module>csv-subsequent-loader</module>
-        <module>3-date-formatter</module>
-        <module>5-enum-switch-date-formatter</module>
-        <module>7-text-blocks</module>
+<!--        <module>csv-subsequent-loader</module>-->
+<!--        <module>3-date-formatter</module>-->
+<!--        <module>5-enum-switch-date-formatter</module>-->
+<!--        <module>7-text-blocks</module>-->
 <!--        <module>sql</module>-->
                 <module>6-docker-rest</module>
         <module>11-generic</module>
+        <module>12-soap</module>
     </modules>
     <dependencies>
         <dependency>
